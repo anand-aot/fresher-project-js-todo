@@ -18,6 +18,7 @@
             </div>
             <button type="button" class="button-first" data-toggle="modal" data-target="#modal-display">Add New Task</button>
         </div><hr>
+        <div class="editDiv" id="editDiv"></div>
         <div class="modal" id="modal-display">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -67,8 +68,8 @@
                 <div class="dropdown" id="dropbuttonh1">
                         <h1>Sort by :</h1>
                     <select class="custom-select" id="sortSelect">
-                        <option value="newest" selected><h3>Newest First</h3></option>
-                        <option value="oldest"><h3>Oldest First</h3></option>
+                        <option id="newest" value="newest" selected><h3>Newest First</h3></option>
+                        <option id="oldest" value="oldest"><h3>Oldest First</h3></option>
                     </select>
                 </div>
             </div>
@@ -78,7 +79,10 @@
         <div class="task-eachdiv" id="task-container"></div>
         </div>
         <div class="completedtask">
+            <div class="cleartaskdiv">
             <h5>Completed Tasks</h5>
+            <button class="taskclear">Clear Completed Tasks</button>
+            </div>
         <div class="task-eachdiv" id="completed-container"></div>
         </div>
     </div>
