@@ -19,6 +19,7 @@
             <button type="button" class="button-first" data-toggle="modal" data-target="#modal-display">Add New Task</button>
         </div><hr>
         <div class="editDiv" id="editDiv"></div>
+        <div class="deleteDiv" id="deleteDiv"></div>
         <div class="modal" id="modal-display">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -81,7 +82,7 @@
         <div class="completedtask">
             <div class="cleartaskdiv">
             <h5>Completed Tasks</h5>
-            <button class="taskclear">Clear Completed Tasks</button>
+            <button class="taskclear" onclick="clearAlltask()">Clear Completed Tasks</button>
             </div>
         <div class="task-eachdiv" id="completed-container"></div>
         </div>
