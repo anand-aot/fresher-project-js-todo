@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             </div>
             <div class="space-content">
             <div class="task-cont task-cont-${index}">
-                <h4>${task.title}</h4>
+                <div class="dot-flex"><h4>${task.title}</h4><div class="dot-color"></div></div>
                 <p>${task.description}</p>
                 <span style="${styleforspan}"><img src="image/${updateTaskStyles(task, index)}" > by  ${task.dueDate} </span>
             </div>
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
          <img src="image/done.svg" alt="done" onclick="taskRevert(${index})">
         <div class="space-content">
         <div class="task-cont">
-            <h4>${task.title}</h4>
+            <div class="dot-flex"><h4>${task.title}</h4><div class="dot-color-success"></div></div>
             <p>${task.description}</p>
             <span><img src="image/calendar.svg" > by  ${task.dueDate} </span>
         </div>
@@ -200,6 +200,7 @@ function deleteTask(index){
               <div class="modal-content-delete">
                 <!-- Modal Header -->
                 <div class="modal-header-delete">
+                <div class="cross"><img src="image/cross.svg" data-dismiss="modal"></div>
                   <h4 class="modal-title-delete">Delete Task ?</h4>
                 </div>
                 <!-- Modal body -->
@@ -209,7 +210,7 @@ function deleteTask(index){
                 <!-- Modal footer -->
                 <div class="modal-footer-delete">
                   <button type="button" class="btn cancel-task-btn" class="close" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-danger add-task-btn add-btn" onclick="deletePermission(${index})">Delete</button>
+                  <button type="button" class="btn btn-danger del-task-btn " onclick="deletePermission(${index})">Delete</button>
                 </div>
                 
               </div>
