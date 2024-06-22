@@ -39,6 +39,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('date').value = '';
   }
   
+  function updateTaskStyles(task, index) {
+    const today = new Date().toISOString().split('T')[0];
+    let imgSource = "calendar.svg";
+    if (task.dueDate < today) {
+      imgSource = "red_calendar.png";
+    }
+    return imgSource;
+  }
+
   function displayTasks() {
     const taskContainer = document.getElementById('task-container');
     const taskcomplete = document.getElementById('completed-container');
@@ -56,28 +65,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
   
     tasks.forEach(function(task, index) {
+      let styleforspan = "";
       const taskDiv = document.createElement('div');
+      const thisday = new Date().toISOString().split('T')[0];
+      if (task.dueDate < thisday) {
+        styleforspan = "color: #C03503; background-color:#C035030F; border: 1px solid #C035030F;"
+      }
       if(task.status == false){
             taskDiv.className = 'task';
-            var today = new Date().toISOString().split('T')[0]; 
-            if(task.dueDate <= today){
-              var elements = document.querySelectorAll('.task-cont > b');
-              elements.forEach(function(element) {
-                element.style.color = '#C03503';
-                element.style.backgroundColor = '#C035030F';
-                element.style.border = '1px solid #C035030F';
-              });
-            }
             taskDiv.innerHTML = `
             <div class="item-straight">
             <div class="radio-div">
                 <input type="radio" id="verify" onclick="taskCompleted(${index})">
             </div>
             <div class="space-content">
-            <div class="task-cont">
+            <div class="task-cont task-cont-${index}">
                 <h4>${task.title}</h4>
                 <p>${task.description}</p>
-                <b><img src="image/calendar.svg" > by  ${task.dueDate} </b>
+                <span style="${styleforspan}"><img src="image/${updateTaskStyles(task, index)}" > by  ${task.dueDate} </span>
             </div>
             <div class="svg-image">
                 <button type="button"  data-toggle="modal" data-target="#edittask-modal" onclick="editTask(${index})"><img src="image/pen.svg" alt="pen"></button>
@@ -97,7 +102,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         <div class="task-cont">
             <h4>${task.title}</h4>
             <p>${task.description}</p>
-            <b><img src="image/calendar.svg" > by  ${task.dueDate} </b>
+            <span><img src="image/calendar.svg" > by  ${task.dueDate} </span>
         </div>
         <div class="svg-image">
             <button type="button"  data-toggle="modal" data-target="#edittask-modal" onclick="editTask(${index})"><img src="image/pen.svg" alt="pen"></button>
@@ -191,20 +196,20 @@ function  updateTask(index){
 function deleteTask(index){
   deleteDiv.innerHTML = `
     <div class="modal" id="deletetask-modal">
-          <div class="modal-dialog">
-              <div class="modal-content">
+          <div class="modal-dialog-delete">
+              <div class="modal-content-delete">
                 <!-- Modal Header -->
-                <div class="modal-header">
-                  <h4 class="modal-title">Delete Task ?</h4>
+                <div class="modal-header-delete">
+                  <h4 class="modal-title-delete">Delete Task ?</h4>
                 </div>
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body-delete">
                   <h3>Are you sure you want to delete this task?</h3>
                 </div>
                 <!-- Modal footer -->
-                <div class="modal-footer">
+                <div class="modal-footer-delete">
                   <button type="button" class="btn cancel-task-btn" class="close" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-primary add-task-btn add-btn" onclick="deletePermission(${index})">Delete</button>
+                  <button type="button" class="btn btn-danger add-task-btn add-btn" onclick="deletePermission(${index})">Delete</button>
                 </div>
                 
               </div>

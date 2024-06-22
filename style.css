@@ -218,12 +218,15 @@ input[type="radio"]{
 
 }
 
-.task-cont > b{
+.task-cont > span{
     font-size: 14px;
     font-weight: 600;
     line-height: 17.07px;
     text-align:justify;
     color: #667085;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 8px;
 }
 
 .item-straight > img{
@@ -259,7 +262,69 @@ input[type="radio"]{
     padding-top: 1%;
 }
 
-.svg-image > button{
+.svg-image > button, .svg-image > button:focus-visible{
     background-color: #FFFFFF;
     border: none;
+    outline: none;
+}
+
+
+#sortSelect {
+    width: 146px;
+    height: 41px;
+    padding: 10px 14px 10px 14px;
+    gap: 10px;
+    border: none;
+}
+
+#sortlist{
+    width: 172px;
+    height:78px;
+    padding: 6px ;
+    gap: 10px;
+    border-radius: 5px;
+    border: 1px ;
+
+}
+
+.drop-down-select{
+    border-radius: 5px;
+    border: 1px solid #CECECE;
+    width: 156px;
+    height: 44px;
+}
+
+#sortSelect:focus-visible{
+    outline: none;
+}
+
+.form-control{
+    height: calc(1.8em + .82rem + 2px);
+}
+
+.input-group-text{
+    padding-top: 1%;
+}
+
+.modal-dialog-delete {
+    width: 654px;
+    height: 237px;
+    margin-top: 272px;
+    margin-left: 393px;
+    padding: 40px;
+    gap: 32px;
+    border-radius: 12px;
+    border: 1px solid #CECECE;
+    background-color: #FFFFFF;
+}
+
+.modal-title-delete{
+    width: 100%;
+    height: 22px;
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 21.94px;
+    text-align: center;
+    color: #09174A;
 }
