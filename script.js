@@ -38,6 +38,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('date').value = '';
   }
   
+  function formatDate(dateStr) {
+    var date = new Date(dateStr);
+    var day = date.getDate();
+    var month = date.toLocaleString('default', { month: 'short' });
+    var year = date.getFullYear();
+    return `${day+1} ${month} ${year}`;
+  }
+
   function updateTaskStyles(task, index) {
     const today = new Date().toISOString().split('T')[0];
     let imgSource = "calendar.svg";
@@ -59,6 +67,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       let styleforspan = "";
       const taskDiv = document.createElement('div');
       const thisday = new Date().toISOString().split('T')[0];
+      var formattedDueDate = formatDate(task.dueDate);
       if (task.dueDate < thisday) {
         styleforspan = "color: #C03503; background-color:#C035030F; border: 1px solid #C035030F;"
       }
@@ -73,7 +82,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             <div class="task-cont task-cont-${index}">
                 <div class="dot-flex"><h4>${task.title}</h4><div class="dot-color"></div></div>
                 <p>${task.description}</p>
-                <span style="${styleforspan}"><img src="image/${updateTaskStyles(task, index)}" > by  ${task.dueDate} </span>
+                <span style="${styleforspan}"><img src="image/${updateTaskStyles(task, index)}" > by  ${formattedDueDate} </span>
             </div>
             <div class="svg-image">
                 <button type="button" class="pen-display" data-toggle="modal" data-target="#edittask-modal" onclick="editTask(${index})"><img src="image/pen.svg" alt="pen"></button>
@@ -93,7 +102,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         <div class="task-cont">
             <div class="dot-flex"><h4>${task.title}</h4><div class="dot-color-success"></div></div>
             <p>${task.description}</p>
-            <span><img src="image/calendar.svg" > by  ${task.dueDate} </span>
+            <span><img src="image/calendar.svg" > by  ${formattedDueDate} </span>
         </div>
         <div class="svg-image">
             <button type="button"  data-toggle="modal" data-target="#edittask-modal" onclick="editTask(${index})"><img src="image/pen.svg" alt="pen"></button>
