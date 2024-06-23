@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     displayTasks();
   });
-  
-  document.getElementById('sortSelect').addEventListener('change', displayTasks());
+
 
   function createTask() {
     const title = document.getElementById('title').value.trim();
@@ -53,18 +52,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const taskcomplete = document.getElementById('completed-container');
     taskcomplete.innerHTML = ''
     taskContainer.innerHTML = '';
-    var sortOption = document.getElementById('sortSelect').value;
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    console.log(sortOption);
-    tasks.sort(function(a, b) {
-      if (sortOption == 'newest') {
-        return new Date(a.createdAt) - new Date(b.createdAt);
-      } else {
-        return new Date(b.createdAt) - new Date(a.createdAt);
-      }
-    });
   
-    tasks.forEach(function(task, index) {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  
+      tasks.forEach(function(task, index) {
       let styleforspan = "";
       const taskDiv = document.createElement('div');
       const thisday = new Date().toISOString().split('T')[0];
