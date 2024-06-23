@@ -82,7 +82,7 @@ hr{
 
 h1 {
     font-family: 'Montserrat';
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     line-height: 17.07px;
     text-align: left;
@@ -173,6 +173,7 @@ h5{
     font-weight: 600;
     line-height: 21.94px;
     height: 22px;
+    color: #8B8B8B;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -191,7 +192,7 @@ h5{
     display: flex;
     flex-direction: row;
     width: 1,312px;
-    height: 164px;
+    height: auto;
     padding: 24px;
     border-radius: 8px;
     border: 1px;
@@ -240,7 +241,6 @@ input[type="radio"]{
 .taskclear{
     width: 205px;
     height: 40px;
-    padding: 10px 20px 10px 20px;
     gap: 8px;
     border-radius: 5px;
     border: 1px solid #0C39C7;
@@ -332,6 +332,7 @@ input[type="radio"]{
     line-height: 21.94px;
     text-align: center;
     color: #09174A;
+    padding-bottom: 32px;
 }
 
 .modal-content-delete{
@@ -346,6 +347,7 @@ input[type="radio"]{
     font-size: 16px;
     font-weight: 500;
     line-height: 19.5px;
+    padding-bottom: 32px;
 }
 
 .modal-footer-delete{
@@ -392,4 +394,12 @@ input[type="radio"]{
     gap: 8px;
     padding-bottom: 8px;
     margin-left: 8px;
+}
+
+.activetasks > h5{
+    padding-bottom: 32px;
+}
+
+.svg-image > .pen-display{
+    margin-top: 4px;
 }

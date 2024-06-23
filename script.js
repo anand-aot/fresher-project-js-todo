@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const dueDate = document.getElementById('date').value;
     const completed = false;
   
-    if (title === '' ||  dueDate === '' || description === '') {
-      alert('All field Required');
+    if (title === '' ||  dueDate === '') {
+      alert('title and duedate field Required');
       return;
     }
   
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 <span style="${styleforspan}"><img src="image/${updateTaskStyles(task, index)}" > by  ${task.dueDate} </span>
             </div>
             <div class="svg-image">
-                <button type="button"  data-toggle="modal" data-target="#edittask-modal" onclick="editTask(${index})"><img src="image/pen.svg" alt="pen"></button>
+                <button type="button" class="pen-display" data-toggle="modal" data-target="#edittask-modal" onclick="editTask(${index})"><img src="image/pen.svg" alt="pen"></button>
             <button type="button"  data-toggle="modal" data-target="#deletetask-modal" onclick="deleteTask(${index})"><img src="image/delete.svg" alt="delete"></button>
             </div>
             </div>
@@ -173,8 +173,8 @@ function  updateTask(index){
   const newtitle = document.getElementById('nameupdate').value.trim();
   const newdescription = document.getElementById('description_new').value.trim();
   const newdueDate = document.getElementById('date_new').value;
-  if (newtitle === '' ||  newdueDate === '' || newdescription === '') {
-    alert('All field Required');
+  if (title === '' ||  dueDate === '') {
+    alert('title and duedate field Required');
     return;
   }
 
