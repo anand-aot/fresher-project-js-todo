@@ -165,7 +165,6 @@ h1 {
 
   input[type="date"] {
     display: flex;
-    flex-direction: row-reverse;
 }
   
 h5{
@@ -276,9 +275,12 @@ input[type="radio"]{
 #sortSelect {
     width: 146px;
     height: 41px;
-    padding: 10px 14px 10px 14px;
     gap: 10px;
     border: none;
+}
+
+.form-control:focus{
+    box-shadow: none;
 }
 
 #sortlist{
@@ -298,7 +300,7 @@ input[type="radio"]{
     height: 44px;
 }
 
-#sortSelect:focus-visible{
+#sortSelect:focus-visible,#sortSelect:focus{
     outline: none;
 }
 
@@ -410,10 +412,22 @@ input[type="radio"]{
     font-weight: 500;
     line-height: 24px;
     color: #495057;
+    width: 146px;
+    height: 44px;
+    gap: 10px;
+}
+
+.selectDiv{
     width: 156px;
     height: 44px;
-    padding: 10px 14px 10px 14px;
+    border: 1px solid #CECECE;
+    border-radius: 5px;
+}
+
+#newest,#oldest{
+    width: 172px;
+    height: 78px;
+    padding: 6px;
     gap: 10px;
     border-radius: 5px;
-    border: 1px solid #CECECE;
 }
