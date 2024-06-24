@@ -3,14 +3,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('sortSelect').addEventListener('change', displayTasks);
   });
  
+  
   function createTask() {
     const title = document.getElementById('title').value.trim();
     const description = document.getElementById('description').value.trim();
     const dueDate = document.getElementById('date').value;
     const completed = false;
-  
+    const todaydate = new Date().toISOString().split('T')[0];
+
     if (title === '' ||  dueDate === '') {
       alert('title and duedate field Required');
+      return;
+    }
+    if(dueDate < todaydate){
+      alert('Date entered not be less than today*s date');
       return;
     }
   
@@ -70,8 +76,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
         event.sort((a,b) => new Date(b.dueDate) - new Date(a.dueDate));
         localStorage.setItem('tasks',JSON.stringify(event));
       }
+
+      let searchValue = document.getElementById('searchInput').value.toLowerCase();
+      let filteredTasks = event.filter(i => i.title.toLowerCase().includes(searchValue));
   
-      event.forEach(function(task, index) {
+      filteredTasks.forEach(function(task, index) {
       let styleforspan = "";
       const taskDiv = document.createElement('div');
       const thisday = new Date().toISOString().split('T')[0];
@@ -181,10 +190,17 @@ function  updateTask(index){
   const newtitle = document.getElementById('nameupdate').value.trim();
   const newdescription = document.getElementById('description_new').value.trim();
   const newdueDate = document.getElementById('date_new').value;
+  const todaydate = new Date().toISOString().split('T')[0];
+  
   if (newtitle === '' ||  newdueDate === '') {
     alert('title and duedate field Required');
     return;
   }
+
+  if(newdueDate < todaydate){
+    alert('Date entered not be less than today*s date');
+    return;
+}
 
   const task = {
     title: newtitle,
