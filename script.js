@@ -183,7 +183,7 @@ function  updateTask(index){
   const newtitle = document.getElementById('nameupdate').value.trim();
   const newdescription = document.getElementById('description_new').value.trim();
   const newdueDate = document.getElementById('date_new').value;
-  if (title === '' ||  dueDate === '') {
+  if (newtitle === '' ||  newdueDate === '') {
     alert('title and duedate field Required');
     return;
   }
