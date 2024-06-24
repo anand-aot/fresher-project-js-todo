@@ -28,8 +28,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     clearFormFields();
     $('#modal-display').modal('hide');
     displayTasks();
-  
-    alert('Task added successfully');
   }
   
   function clearFormFields() {
@@ -234,7 +232,6 @@ function deletePermission(index){
   tasks.splice(index, 1);
   localStorage.setItem('tasks', JSON.stringify(tasks));
   window.location.reload();
-  alert('Task deleted successfully');
 }
 
 function clearAlltask(){
