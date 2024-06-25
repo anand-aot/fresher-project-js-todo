@@ -78,9 +78,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
 
       let searchValue = document.getElementById('searchInput').value.toLowerCase();
-      let filteredTasks = event.filter(i => i.title.toLowerCase().includes(searchValue));
   
-      filteredTasks.forEach(function(task, index) {
+      event.forEach(function(task, index) {
+        if (task.title.toLowerCase().includes(searchValue)) {
       let styleforspan = "";
       const taskDiv = document.createElement('div');
       const thisday = new Date().toISOString().split('T')[0];
@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         taskcomplete.appendChild(taskDiv);
     }
+        }
   });
   }
   
